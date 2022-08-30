@@ -1,12 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react"
+import { Route, Routes } from "react-router-dom";
+import { CreateProduct, MainContainer, NavBar } from "./components";
+import {AnimatePresence} from "framer-motion";
+
+
 
 function App() {
-let mensaje = "Hola Mundillo"
+
+  useEffect(()=>{
+    document.body.style.backgroundColor="#ECCD94"
+  })
+
   return (
-    <div className="App">
-      {mensaje}
-    </div>
+    <AnimatePresence>
+      <div> 
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<MainContainer/>} />
+          <Route exact path="/createItem" element={<CreateProduct/>} />
+        </Routes>
+      </div>
+    </AnimatePresence>
   );
 }
 
