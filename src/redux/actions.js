@@ -1,7 +1,7 @@
 export const SET_USER = "SET_USER";
 
 
-export const setUser = (payload)=>{
+export const setUsers = (payload)=>{
       return  {
             type: SET_USER,
             payload: {...payload}
