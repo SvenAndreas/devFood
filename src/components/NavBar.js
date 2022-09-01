@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Logo from "../img/logo.png"
 import Avatar from "../img/avatar.png"
-import { RiShoppingBasketFill, RiLogoutCircleRLine, RiAddCircleLine, RiMenu3Fill } from "react-icons/ri"
+import { RiShoppingBasketFill, RiLogoutCircleRLine, RiAddCircleLine, RiMenu3Fill, RiMenu2Fill } from "react-icons/ri"
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -46,14 +46,16 @@ export default function NavBar() {
 
 
   return (
-    <nav className='fixed z-50 w-screen bg-orange-700/50 p-2.5 px-1'>
+    <nav className='fixed z-50 w-screen bg-navBarColor p-2.5 px-1'>
       {/* desktop & tablet */}
       <div className='hidden md:flex w-full h-full'>
 
         <Link to="/">
           <div className='flex items-center gap-1'>
             <img src={Logo} className="w-20 object-cover" alt='logo' />
-            <p className='text-headingColor text-x1 font-bold '>City</p>
+            <p className='text-headingColor text-x1 font-bold '>
+              City
+            </p>
           </div>
         </Link>
 
@@ -88,7 +90,7 @@ export default function NavBar() {
               exit={{ opacity: 0, scale: 0.6, y: -50 }}
               className='w-30 bg-slate-100/60 shadow-xl rounded-lg flex flex-col absolute top-12 right-20'>
               {user && user.email === "svenandreasclausz@gmail.com" && (
-                <Link to="/createItem">
+                <Link to="/createItem" onClick={()=>setMenu(!menu)}>
                   <p className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
                     New Item 
                     <RiAddCircleLine />
@@ -138,7 +140,7 @@ export default function NavBar() {
               className='w-30 bg-slate-100/60 shadow-xl rounded-lg flex flex-col absolute top-12 right-20 mr-7'>
               {user && user.email === "svenandreasclausz@gmail.com" && (
                 <Link to="/createItem">
-                  <p className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
+                  <p className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'onClick={()=>setMenu(!menu)}>
                     New Item 
                     <RiAddCircleLine />
                   </p>
@@ -169,16 +171,16 @@ export default function NavBar() {
               exit={{ opacity: 0, scale: 0.6, y: -50 }}
               className='w-30 bg-slate-100/60 shadow-xl rounded-lg flex flex-col absolute top-12 right-3'>
               <ul>
-                <li className='block items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
+                <li className='block items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'onClick={()=>setNavMenu(!navMenu)}>
                   Home
                 </li>
-                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
+                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'onClick={()=>setNavMenu(!navMenu)}>
                   Menu
                 </li>
-                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
+                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'onClick={()=>setNavMenu(!navMenu)}>
                   About Us
                 </li>
-                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'>
+                <li className='flex items-center px-3 py-1 gap-3 cursor-pointer hover:bg-slate-100/70 rounded-md drop-shadow-md'onClick={()=>setNavMenu(!navMenu)}>
                   Service
                 </li>
               </ul>
