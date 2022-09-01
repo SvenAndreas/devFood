@@ -28,6 +28,8 @@ module.exports = {
         370: "370px",
         420: "420px",
         510: "510px",
+        550: "550px",
+        575: "575px",
         600: "600px",
         685: "685px",
         800: "800px",
@@ -50,8 +52,10 @@ module.exports = {
         textColor: "#515151",
         cartNumBg: "#e88013",
         primary: "#f5f3f3",
-        navBarColor:"#e3845d"
-      }
+        navBarColor:"#e3845d",
+        backGroundColor:"#ECCD94",
+      },
+
     },
   },
   plugins: [],

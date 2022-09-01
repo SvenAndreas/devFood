@@ -34,3 +34,31 @@ export const containerData = [
     }
 ]
 
+export const categories = [
+    {
+        id: 1,
+        name: "Curry",
+        urlParamName: "curry"
+    },
+    {
+        id: 2,
+        name: "Drinks",
+        urlParamName: "drinks"
+    },
+    {
+        id: 3,
+        name: "Pizza",
+        urlParamName: "pizza"
+    },
+    {
+        id: 4,
+        name: "Sandwich",
+        urlParamName: "sandwich"
+    },
+    {
+        id:5,
+        name:"Desert",
+        urlParamName:"desert"
+    }
+]
+
