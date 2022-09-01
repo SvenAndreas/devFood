@@ -4,6 +4,8 @@ import {RiUploadCloud2Fill, RiDeleteBin2Line, } from "react-icons/ri"
 import {AiFillPicture} from "react-icons/ai"
 import {categories} from "../utils/data"
 import Loader from './Loader'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { storage } from '../firebase/firebase.config'
 
 
 function CreateProduct() {
@@ -11,7 +13,22 @@ function CreateProduct() {
   const [isLoading, setIsLoading] = useState(false)
   const [imageAsset, setImageAsset] = useState(null)
 
-  const upLoadImage = ()=>{}
+  const upLoadImage = (e)=>{
+    setIsLoading(true);
+    const imageInfo = e.target.files[0];
+    const storageRef = ref(storage, `Images/${Date.now()}-${imageInfo.name}`)
+    const upLoad = uploadBytesResumable(storageRef,imageInfo)
+    upLoad.on("state_changed",(snapshot)=>{
+      const upLoadProgress = (snapshot.bytesTransferred / snapshot.totalBytes)*100;
+    },(error)=>{
+      console.log(error)
+    },()=>{
+      getDownloadURL(upLoad.snapshot.ref).then(downloadURL =>{
+        setImageAsset(downloadURL);
+        setIsLoading(false);
+      })
+    })
+  }
   const deleteImage = ()=>{}
   return (
       <form className='flex flex-col w-[80%] m-auto h-550 items-center bg-slate-300/40 border border-gray-500'
@@ -34,7 +51,10 @@ function CreateProduct() {
               Select category
             </option>
             {categories && categories.map(e=>(
-              <option className='text-base font-semibold'>
+              <option
+               className='text-base font-semibold'
+               key={e.id}
+              >
                 {e.name}
               </option>
             ))}
@@ -44,7 +64,7 @@ function CreateProduct() {
           <AiFillPicture className='mr-1'/>
           Image
           </p>
-        <div className='w-[50%] h-225 mt-3 bg-slate-500/10 ml-6 cursor-pointer rounded-lg border-2 border-dotted border-black/40 flex items-center justify-center'>
+        <div className='w-[80%] md:w-[60%] h-225 mt-3 bg-slate-500/10 ml-6 cursor-pointer rounded-lg border-2 border-dotted border-black/40 flex items-center justify-center'>
           {isLoading ? (
             <Loader/>
           ):(
@@ -69,10 +89,10 @@ function CreateProduct() {
                   <div className='relative h-full'>
                     <img 
                       src={imageAsset}
-                      alt="UploadedImage" 
+                      alt="UploadedImage"   
                       className='w-full h-full object-cover'/>
                     <button 
-                      className='absolute rounded-full bg-red-500 text-xl cursor-pointer hover:shadow-md duration-500 transition-all' 
+                      className='absolute right-2 bottom-2 w-7 h-6 flex items-center justify-center rounded-full bg-red-500 text-xl cursor-pointer hover:drop-shadow-xl duration-500 transition-all' 
                       onClick={deleteImage}>
                       <RiDeleteBin2Line className='text-white'/>
                     </button>
