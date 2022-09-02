@@ -75,6 +75,7 @@ function CreateProduct() {
 
   const handleInputChange = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    console.log(e.target.value)
     setErrors(validate({ ...input, [e.target.name]: e.target.value }))
   }
 
@@ -187,7 +188,7 @@ function CreateProduct() {
           className='w-[80%] ml-6 outline-none border border-solid border-slate-500 bg-amber-200/75 placeholder:text-gray-500'
           onClick={handleInputChange}
         >
-          <option value={input.select} className='bg-white placeholder:text-gray-500' >
+          <option value="other" className='bg-white placeholder:text-gray-500' >
             Select category
           </option>
           {categories && categories.map(e => (
