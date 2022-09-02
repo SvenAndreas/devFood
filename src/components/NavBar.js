@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Logo from "../img/logo.png"
 import Avatar from "../img/avatar.png"
-import { RiShoppingBasketFill, RiLogoutCircleRLine, RiAddCircleLine, RiMenu3Fill, RiMenu2Fill } from "react-icons/ri"
+import { RiShoppingBasketFill, RiLogoutCircleRLine, RiAddCircleLine, RiMenu3Fill} from "react-icons/ri"
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
