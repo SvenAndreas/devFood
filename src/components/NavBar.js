@@ -81,8 +81,8 @@ export default function NavBar() {
             <RiShoppingBasketFill
                 className='z-40 cursor-pointer transform scale-150 xl:text-2xl text-amber-100 mr-8 ml-1'
               />
-              <div className='absolute top-3 z-10 right-[10.4rem] w-4 h-4 lg:w-6 lg:h-6 xl:top-7 xl:right-[11.7rem] bg-amber-300/70 rounded-full flex items-center justify-center cursor-pointer'>
-                <p className='text-xs lg:text-lg text-amber-700 cursor-pointer font-semibold'>7</p>
+              <div className='absolute top-3 z-10 right-[10.4rem] w-4 h-4 xl:w-6 xl:h-6 xl:top-7 xl:right-[11.7rem] bg-amber-300/70 rounded-full flex items-center justify-center cursor-pointer'>
+                <p className='text-xs xl:text-lg text-amber-700 cursor-pointer font-semibold'>7</p>
               </div>
             </div>
             
@@ -133,9 +133,9 @@ export default function NavBar() {
       <div className='flex md:hidden w-full h-full justify-between items-center'>
         <Link to="/">
           <div className='flex items-center gap-2'>
-            <img src={Logo} className="shrink w-16" alt='logo' />
+            <img src={Logo} className="shrink w-20" alt='logo' />
             <p className='text-white text-sm shrink font-bold '>
-              City
+              Delivery App
             </p>
           </div>
         </Link>
@@ -171,8 +171,8 @@ export default function NavBar() {
           <RiShoppingBasketFill
             className='shrink-0 z-40 cursor-pointer transform scale-150 text-amber-100 mr-8 ml-1'
           />
-          <div className='absolute shrink mr-8 top-3 z-10 right-6 w-4 h-4 bg-amber-700 rounded-full flex items-center justify-center cursor-pointer'>
-            <p className='text-xs shrink text-amber-300 cursor-pointer'>
+          <div className='absolute shrink mr-8 top-3 z-10 right-6 w-4 h-4 bg-amber-300/70 rounded-full flex items-center justify-center cursor-pointer'>
+            <p className='text-xs shrink text-amber-700 cursor-pointer'>
               7
             </p>
           </div>

@@ -13,7 +13,7 @@ function Menucontainer() {
     return (
         <section className='w-full text-center mt-[42rem] md:mt-[12rem] lg:mt-[14rem]'>
 
-            <p className='my-5 font-semibold text-[6rem] drop-shadow-lg text-amber-700 font-serif'>
+            <p className='my-5 font-semibold text-[4rem]  md:text-[6rem] drop-shadow-lg text-amber-700 font-serif'>
                 Our menu
             </p>
 
