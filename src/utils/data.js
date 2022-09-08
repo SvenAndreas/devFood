@@ -2,6 +2,11 @@ import P1 from "../img/icecream.png"
 import P2 from "../img/curry.png"
 import P4 from "../img/pizza.png"
 import P5 from "../img/sandwich.png"
+import pc from "../img/pizzaC.png"
+import cc from "../img/curryC.png"
+import dc from "../img/desertsC.png"
+import fc from "../img/fastfoodC.png"
+import drc from "../img/drinkC.png"
 
 export const containerData = [
     {
@@ -37,28 +42,34 @@ export const containerData = [
 export const categories = [
     {
         id: 1,
-        name: "Curry",
-        urlParamName: "curry"
+        name: "Currys",
+        urlParamName: "curry",
+        url:cc
     },
     {
         id: 2,
         name: "Drinks",
-        urlParamName: "drinks"
+        urlParamName: "drink",
+        url:drc
     },
     {
         id: 3,
-        name: "Pizza",
-        urlParamName: "pizza"
+        name: "Pizzas",
+        urlParamName: "pizza",
+        url:pc
     },
     {
         id: 4,
-        name: "Sandwich",
-        urlParamName: "sandwich"
+        name: "Sandwiches",
+        urlParamName: "sandwich",
+        url:fc
+
     },
     {
         id:5,
-        name:"Desert",
-        urlParamName:"desert"
+        name:"Deserts",
+        urlParamName:"desert",
+        url:dc
     }
 ]
 

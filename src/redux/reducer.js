@@ -1,11 +1,12 @@
 import { fetchUser } from "../utils/fetchLocalStorageData";
-import { SET_LOADING, SET_USER } from "./actions";
+import { SET_FOOD_ITEMS, SET_LOADING, SET_USER } from "./actions";
 
 const userInfo = fetchUser()
 
 const initialState = {
   user: userInfo,
   loading: false,
+  foodItems: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -19,6 +20,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: !state.loading
+      }
+    case SET_FOOD_ITEMS:
+      return {
+        ...state,
+        foodItems:action.payload
       }
     default:
       return {

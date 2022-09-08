@@ -7,8 +7,8 @@ import Loader from './Loader'
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storage } from '../firebase/firebase.config'
 import { useDispatch, useSelector } from 'react-redux'
-import { setIsLoading } from '../redux/actions'
-import { saveItem } from '../utils/firebaseFunctions'
+import { setFoodItems, setIsLoading } from '../redux/actions'
+import { getAllItems, saveItem } from '../utils/firebaseFunctions'
 
 
 export function validate(input) {
@@ -72,6 +72,14 @@ function CreateProduct() {
   const [input, setInput] = useState(initialState)
   const [errors, setErrors] = useState(errorsIntialState)
   const [msg, setMsg] = useState({ error: "", succes: "" });
+
+  
+  const fetchData = async () =>{
+    await getAllItems().then((data)=>{
+      dispatch(setFoodItems(data))
+    })
+  }
+
 
   const handleInputChange = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -159,11 +167,12 @@ function CreateProduct() {
         setMsg((prev) => ({ ...prev, error: "" }))
       }, 3000);
     }
+    fetchData()
   }
 
 
   return (
-    <form className={errors ? 'flex flex-col w-[80%] m-auto h-650 items-center bg-slate-300/40 border border-gray-500' : 'flex flex-col w-[80%] m-auto h-550 items-center bg-slate-300/40 border border-gray-500'}
+    <form className='flex flex-col w-[80%] m-auto h-650 items-center bg-slate-300/40 border border-gray-500'
       onSubmit={saveDetails}>
       {!msg.succes ? null : <p className='text-white bg-emerald-600 p-2 font-bold text-md mt-2 rounded-xl'>{msg.succes}</p>}
       {!msg.error ? null : <p className='text-white bg-red-600 p-2 font-bold text-md mt-2 rounded-xl'>{msg.error}</p>}
