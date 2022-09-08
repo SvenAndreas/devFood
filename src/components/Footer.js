@@ -86,7 +86,8 @@ function Footer() {
 
         <div className='mt-10 w-[20rem] flex mx-auto'>
             <p className='text-sm text-center font-medium'>
-                Copyright-2022. Website made by Sven Andreas Clausz. All rights reserved
+                 Website made with ❤ by Sven Andreas Clausz.
+                 2022
             </p>
         </div>
 
